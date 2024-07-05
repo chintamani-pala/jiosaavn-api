@@ -41,3 +41,17 @@ def get_song(id, lyrics):
         return None
 
 
+def get_song_id(url):
+    res = requests.get(url, data=[('bitrate', '320')])
+    try:
+        return(res.text.split('"pid":"'))[1].split('","')[0]
+    except IndexError:
+        return res.text.split('"song":{"type":"')[1].split('","image":')[0].split('"id":"')[-1]
+
+
+
+def get_lyrics(id):
+    url = api.lyrics_base_url+id
+    lyrics_json = requests.get(url).text
+    lyrics_text = json.loads(lyrics_json)
+    return lyrics_text['lyrics']

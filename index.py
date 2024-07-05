@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, jsonify, json
 import time
-import points
+import jiosaavn
 import os
 from traceback import print_exc
 from flask_cors import CORS
@@ -31,7 +31,7 @@ def search():
     if songdata_ and songdata_.lower() != 'true':
         songdata = False
     if query:
-        return jsonify(points.search_for_song(query, lyrics, songdata, page))
+        return jsonify(jiosaavn.search_for_song(query, lyrics, songdata, page))
     else:
         error = {
             "status": False,
@@ -48,7 +48,7 @@ def get_song():
     if lyrics_ and lyrics_.lower() != 'false':
         lyrics = True
     if id:
-        resp = points.get_song(id, lyrics)
+        resp = jiosaavn.get_song(id, lyrics)
         if not resp:
             error = {
                 "status": False,
@@ -63,6 +63,9 @@ def get_song():
             "error": 'Song ID is required to get a song!'
         }
         return jsonify(error)
+
+
+
 
 
 if __name__ == '__main__':

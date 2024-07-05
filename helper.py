@@ -1,5 +1,5 @@
 import base64
-import points
+import jiosaavn
 from pyDes import *
 
 
@@ -30,7 +30,7 @@ def format_song(data, lyrics):
 
     if lyrics:
         if data['has_lyrics'] == 'true':
-            data['lyrics'] = points.get_lyrics(data['id'])
+            data['lyrics'] = jiosaavn.get_lyrics(data['id'])
         else:
             data['lyrics'] = None
 
@@ -39,7 +39,6 @@ def format_song(data, lyrics):
     except KeyError:
         pass
     return data
-
 
 def decrypt_url(url):
     des_cipher = des(b"38346591", ECB, b"\0\0\0\0\0\0\0\0",
