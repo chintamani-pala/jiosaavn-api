@@ -83,7 +83,7 @@ curl http://0.0.0.0:5100/song/get/?id=<song_id>&lyrics=true
 ## index.py
 - Main Flask application that defines API endpoints and handles incoming requests.
 
-## points.py
+## jiosaavn.py
 - Handles the logic for searching songs and retrieving song details from the JioSaavn API. Utilizes helper functions for processing responses.
 
 ## requirements.txt
