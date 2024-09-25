@@ -65,11 +65,11 @@ python index.py
 
 # Search for Songs
 ```bash
-curl http://0.0.0.0:5100/song/?query=aradhya&page=1
+curl https://jio-saavn-api-chintamanipala.vercel.app/song/?query=aradhya&page=1
 ```
 # Get Song Details by ID
 ```bash
-curl http://0.0.0.0:5100/song/get/?id=<song_id>&lyrics=true
+curl https://jio-saavn-api-chintamanipala.vercel.app/song/get/?id=<song_id>&lyrics=true
 ```
 
 
